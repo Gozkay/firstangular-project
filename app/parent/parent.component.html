@@ -1,0 +1,6 @@
+<p>parent works!</p>
+<p> data from the child component {{ child_data }}</p>
+<ul>
+    <li *ngFor="let stream of child_stream">{{stream}}</li>
+</ul>
+<app-child [Mydata]="current_title" (newDataEmitter)="add_from_child($event)"></app-child>

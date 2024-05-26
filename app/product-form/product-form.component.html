@@ -1,0 +1,60 @@
+<div>
+<h1>{{title}}</h1>
+<div [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <mat-form-field>
+        <mat-label> Enter product name</mat-label>
+        <input matInput formControlName="name" required placeholder="insert producname">
+        <mat-error *ngIf="this.form.controls['name'].errors?.['required']">
+            The product name is required
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Enter the product price</mat-label>
+        <input type="number" matInput formControlName="price" required placeholder="Please enter the product price" appNumeric >
+        <mat-error *ngIf="this.form.controls['price'].errors?.['required']"></mat-error>
+    </mat-form-field>
+
+<div>
+    <button mat-flat-button color="primary" (click)="onSubmit()" [disabled]="!form.valid">Submit</button>
+</div>
+</div>
+
+
+
+<div>
+    <!-- <button (click)="OnLoadProduct()">Show products</button> <br> -->
+    <table>
+        <tr>
+            <th class ='heading'>
+                name
+            </th>
+            <th class ='heading'>
+                price
+            </th>
+        </tr>
+        <tr *ngFor="let product of items| customize ">
+            <td>{{product.name }}</td>
+            <td>{{product.price | currency:'GHS'}}</td>
+        </tr>
+        
+        
+        </table>
+
+</div>  
+
+<button (click)="onKeylogger()">load key logger</button>
+<div *ngFor="let product of items | customize">
+<p>{{product.name}}</p>
+
+</div>
+    <ng-template appProductHost>
+
+    </ng-template>
+
+
+</div>
+<div>
+    <app-data-list></app-data-list>
+</div>

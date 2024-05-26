@@ -1,0 +1,22 @@
+<table>
+<tr>
+    <th>
+        number
+    </th>
+    <th>
+    <th>
+        name
+    </th>
+    <th>
+        price
+    </th>
+</tr>
+<tr *ngFor="let product of products| customize; let num = index">
+    <td>{{num + 1 }}</td>
+    <td>{{product.name }}</td>
+    <td>{{product.price | currency:'USD'}}</td>
+   
+</tr>
+
+
+</table>

@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ngSwitch</title>
+</head>
+<body>
+    <div>
+        <label for="foodstuffs">choose your favourite food</label><br>
+        <mat-radio-group aria-labelledby="foodstuffs"
+         [(ngModel)]="favoritefood">
+            <mat-radio-button *ngFor="let food of foods" [value]="food">
+                {{ food }}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div><br><br>
+
+    <div>
+       <div [ngSwitch]="favoritefood">
+            <div *ngSwitchCase="'Ukwa'">
+                <h2>{{ favoritefood }}</h2>
+                <img src="../../assets/ukwa.jpeg" width="300px">
+                <p>The ukwa, Profs favorite food."</p>
+            </div>
+            <div *ngSwitchCase="'Okpa'">
+                <h2>{{ favoritefood }}</h2>
+                <img src="../../assets/okpa.jpeg" width="300px">
+                <p>The Okpa, Enugu's favorite fast food</p>
+            </div>
+            <div *ngSwitchCase="'Abacha'">
+                <h2>{{ favoritefood }}</h2>
+                <img src="../../assets/abacha.jpeg" width="300px">
+                <p>The Abacha, Just as sweet as it looks.</p>
+            </div>
+            <div *ngSwitchCase="'CassavaFlakes'">
+                <h2>{{ favoritefood }}</h2>
+                <img src="../../assets/garri.jpeg" width="300px">
+                <p>The CassavaFlakes, known to be students savior</p>
+            </div>
+            <div *ngSwitchDefault>
+                <h3>nothing selected</h3>
+            </div>
+        </div> 
+    </div>
+</body>
+</html>

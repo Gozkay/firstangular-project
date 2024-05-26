@@ -1,0 +1,13 @@
+<p>data-list works!</p>
+<div>
+    <h1>Data List</h1>
+    <ul>
+      <li *ngFor="let item of data">
+        {{ item.notebook_name }}
+      </li>
+    </ul>
+  </div>
+ 
+<input [(ngModel)]="notebook_name">  
+<button (click)="getNotebooks()">get all notebooks</button>  
+<button (click)="postNotebook()">post a note</button>  
